@@ -15,7 +15,7 @@ public class movieUtils {
     private String opening_date;
     private String date_updated;
     private link Link;
-    private com.example.lievenvervoort.nieuwsapp.model.Multimedia Multimedia;
+    private Multimedia Multimedia;
 
     public String getDisplay_title() {
         return display_title;
@@ -95,5 +95,12 @@ public class movieUtils {
 
     public void setMultimedia(Multimedia Multimedia) {
         this.Multimedia = Multimedia;
+    }
+    public link getLink() {
+        return Link;
+    }
+
+    public void setLink(link link) {
+        Link = link;
     }
 }

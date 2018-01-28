@@ -5,13 +5,40 @@ package com.example.lievenvervoort.nieuwsapp.model;
  */
 
 public class Multimedia {
-    private resource Resource;
+    private String type;
+    private String src;
+    private Integer height;
+    private Integer width;
 
-    public resource getResource() {
-        return Resource;
+    public String getType() {
+        return type;
     }
 
-    public void setResource(resource Resource) {
-        this.Resource = Resource;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getSrc() {
+        return src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
+    }
+
+    public Integer getHeight() {
+        return height;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+
+    public Integer getWidth() {
+        return width;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
     }
 }

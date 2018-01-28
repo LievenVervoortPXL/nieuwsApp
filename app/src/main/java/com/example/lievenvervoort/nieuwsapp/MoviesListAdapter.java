@@ -6,9 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
 import com.example.lievenvervoort.nieuwsapp.model.movieUtils;
 
 import java.util.List;
@@ -53,13 +57,14 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private Toast toast;
         TextView titleView;
+        NetworkImageView imageView;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
             titleView = itemView.findViewById(R.id.tv_title);
+            imageView = itemView.findViewById(R.id.iv_image);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
