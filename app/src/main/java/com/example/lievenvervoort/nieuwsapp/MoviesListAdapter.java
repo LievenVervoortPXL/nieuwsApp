@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +17,7 @@ import java.util.List;
  * Created by LievenVervoort on 26/01/2018.
  */
 
-public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.MoviesListViewHolder> {
+public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.ViewHolder> {
 
     private Context mContext;
     private List<movieUtils> movies;
@@ -27,13 +28,14 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
     }
 
     @Override
-    public MoviesListViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.title_list_item, parent, false);
-        return new MoviesListViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(MoviesListAdapter.MoviesListViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
 
         holder.itemView.setTag(movies.get(position));
 
@@ -50,29 +52,24 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
         return movies.size();
     }
 
-    public class MoviesListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         private Toast toast;
         TextView titleView;
 
 
-        public MoviesListViewHolder(View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             titleView = itemView.findViewById(R.id.tv_title);
 
-            itemView.setOnClickListener(this);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    movieUtils movieUtils = (movieUtils) view.getTag();
+
+                    Toast.makeText(view.getContext(), movieUtils.getDisplay_title(),Toast.LENGTH_LONG).show();
+                }
+            });
         }
 
-        @Override
-        public void onClick(View view){
-            int clickedPosition = getAdapterPosition();
-
-            if(toast != null){
-                toast.cancel();
-            }
-
-            String toastMessage = "Item #" + clickedPosition + " clicked.";
-            toast = Toast.makeText(mContext, toastMessage, Toast.LENGTH_LONG);
-            toast.show();
-        }
     }
 }
