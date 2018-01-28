@@ -1,4 +1,4 @@
-package com.example.lievenvervoort.nieuwsapp;
+package com.example.lievenvervoort.nieuwsapp.model;
 
 /**
  * Created by LievenVervoort on 28/01/2018.

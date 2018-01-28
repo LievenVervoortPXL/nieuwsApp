@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lievenvervoort.nieuwsapp.model.movieUtils;
+
 import java.util.List;
 
 /**
@@ -55,7 +57,7 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
 
         public MoviesListViewHolder(View itemView) {
             super(itemView);
-            titleView = (TextView) itemView.findViewById(R.id.tv_title);
+            titleView = itemView.findViewById(R.id.tv_title);
 
             itemView.setOnClickListener(this);
         }

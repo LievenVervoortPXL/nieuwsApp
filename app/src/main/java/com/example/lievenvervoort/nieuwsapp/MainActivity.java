@@ -13,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.lievenvervoort.nieuwsapp.model.movieUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,31 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
         sendRequest();
 
-
-       /* mMovieList = (RecyclerView) this.findViewById(R.id.title_list);
-
-        RequestQueue queue = Volley.newRequestQueue(this);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-            url,
-            null,
-            new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    result = getResultSet(response);
-                }
-            }, new Response.ErrorListener(){
-                @Override
-                public void onErrorResponse(VolleyError error){
-
-                }
-            }
-        );
-        queue.add(jsonObjectRequest);
-
-        mCursor = getJSONCursor(result.toString());
-        mAdapter = new MoviesListAdapter(this,mCursor);
-        mMovieList.setLayoutManager(new LinearLayoutManager(this));
-        mMovieList.setAdapter(mAdapter);*/
     }
 
     private void sendRequest() {

@@ -1,4 +1,4 @@
-package com.example.lievenvervoort.nieuwsapp;
+package com.example.lievenvervoort.nieuwsapp.model;
 
 /**
  * Created by LievenVervoort on 28/01/2018.
@@ -15,7 +15,7 @@ public class movieUtils {
     private String opening_date;
     private String date_updated;
     private link Link;
-    private Multimedia Multimedia;
+    private com.example.lievenvervoort.nieuwsapp.model.Multimedia Multimedia;
 
     public String getDisplay_title() {
         return display_title;
