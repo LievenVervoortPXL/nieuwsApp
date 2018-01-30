@@ -3,18 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/singleRow">
-
-        <com.android.volley.toolbox.NetworkImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/iv_image"
-            android:maxWidth="60dp"
-            android:maxHeight="60dp"/>
-
         <TextView
             android:id="@+id/tv_title"
             android:textSize="20sp"
@@ -24,13 +12,6 @@
             android:layout_marginRight="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/iv_image"
-            android:layout_toEndOf="@+id/iv_image"
             />
-
-    </RelativeLayout>
-
-
 
 </RelativeLayout>

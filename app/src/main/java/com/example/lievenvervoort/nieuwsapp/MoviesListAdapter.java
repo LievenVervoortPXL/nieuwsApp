@@ -1,6 +1,7 @@
 package com.example.lievenvervoort.nieuwsapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,13 +40,24 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
 
         holder.itemView.setTag(movies.get(position));
-
-        movieUtils MovieUtils = movies.get(position);
-
+        final movieUtils MovieUtils = movies.get(position);
         holder.titleView.setText(MovieUtils.getDisplay_title());
+
+        holder.titleView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(),DetailActivity.class);
+                intent.putExtra("movie", movies.get(position).getDisplay_title());
+                intent.putExtra("description",movies.get(position).getSummary_short());
+                intent.putExtra("more",movies.get(position).getLink().getUrl());
+                intent.putExtra("image",movies.get(position).getMultimedia().getSrc());
+
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -58,13 +70,10 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView titleView;
-        NetworkImageView imageView;
-
 
         public ViewHolder(View itemView) {
             super(itemView);
             titleView = itemView.findViewById(R.id.tv_title);
-            imageView = itemView.findViewById(R.id.iv_image);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

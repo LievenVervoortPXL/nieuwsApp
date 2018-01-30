@@ -1,5 +1,6 @@
 package com.example.lievenvervoort.nieuwsapp;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Movie;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
