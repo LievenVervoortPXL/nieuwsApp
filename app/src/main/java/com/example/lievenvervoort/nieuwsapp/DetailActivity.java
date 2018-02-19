@@ -19,8 +19,6 @@ import com.android.volley.toolbox.Volley;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private RequestQueue mRequestQueue;
-    private ImageLoader mImageLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +28,7 @@ public class DetailActivity extends AppCompatActivity {
         TextView movie = findViewById(R.id.tv_movie);
         TextView url = findViewById(R.id.tv_more);
         TextView description = findViewById(R.id.tv_description);
-        final NetworkImageView imageView = findViewById(R.id.iv_image);
+        final ImageView imageView = findViewById(R.id.iv_image);
 
         Intent intent = getIntent();
         movie.setText(intent.getStringExtra("movie"));
