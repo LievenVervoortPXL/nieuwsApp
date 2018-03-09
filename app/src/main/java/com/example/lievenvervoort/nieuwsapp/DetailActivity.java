@@ -3,9 +3,11 @@ package com.example.lievenvervoort.nieuwsapp;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.Image;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.LruCache;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,8 +34,20 @@ public class DetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         movie.setText(intent.getStringExtra("movie"));
-        url.setText(intent.getStringExtra("more"));
+        url.setText("Read the full article");
         description.setText(intent.getStringExtra("description"));
+
+        url.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = getIntent();
+                Uri uri = Uri.parse(intent.getStringExtra("more"));
+                Intent openWeb = new Intent(Intent.ACTION_VIEW, uri);
+                if(openWeb.resolveActivity(getPackageManager()) != null){
+                    startActivity(openWeb);
+                }
+            }
+        });
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
