@@ -2,6 +2,9 @@ package com.example.lievenvervoort.nieuwsapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Icon;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +30,7 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Vi
     private Context mContext;
     private List<movieUtils> movies;
 
+
     public MoviesListAdapter(Context context, List movies){
         this.mContext = context;
         this.movies = movies;
@@ -45,6 +49,17 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Vi
         holder.itemView.setTag(movies.get(position));
         final movieUtils MovieUtils = movies.get(position);
         holder.titleView.setText(MovieUtils.getDisplay_title());
+
+        int rating = MovieUtils.getCritics_pick();
+
+        if(rating == 1){
+            holder.imageView.setImageResource(R.drawable.ic_critics_go);
+        }else
+        {
+            holder.imageView.setImageResource(R.drawable.ic_critics_nogo);
+        }
+
+
 
         holder.titleView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,10 +85,12 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView titleView;
+        ImageView imageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             titleView = itemView.findViewById(R.id.tv_title);
+            imageView = itemView.findViewById(R.id.iv_rating_image);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
