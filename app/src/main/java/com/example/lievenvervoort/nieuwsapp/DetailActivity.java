@@ -61,7 +61,7 @@ public class DetailActivity extends AppCompatActivity {
                 },
                 0,
                 0,
-                ImageView.ScaleType.FIT_CENTER,
+                ImageView.ScaleType.CENTER,
                 Bitmap.Config.RGB_565,
                 new Response.ErrorListener() {
                     @Override
