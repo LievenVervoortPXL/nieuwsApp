@@ -20,12 +20,5 @@ public class settingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        LayoutInflater inflater = getLayoutInflater();
-
-
-        return true;
-    }
 
 }
